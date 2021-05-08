@@ -48,7 +48,14 @@ int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::
    return -1;  // If depth data invalid
 }
 
-//int xycallback(const )
+void xycallback(const kinect_package::kinect::ConstPtr& msg) {
+
+
+
+
+
+
+}
 
 // Image Callback
 void imageCallback(const sensor_msgs::ImageConstPtr& image) {
