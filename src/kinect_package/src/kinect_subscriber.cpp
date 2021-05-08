@@ -1,11 +1,11 @@
 #include "ros/ros.h"
 #include <image_transport/image_transport.h>
 //#include "opencv_application/kinect.h"
-#include "sensor_msgs/Image.h"
+#include "sensor_msgs/ImageConstPtr.h"
 #include "geometry_msgs/Point.h"
 
 float x,y;
-sensor_msgs::Image depth_image;
+sensor_msgs::ImageConstPtr depth_image;
 
 bool new_x_y=false;
 bool new_image=false;
@@ -65,7 +65,7 @@ void xyCallback(const geometry_msgs::Point::ConstPtr& msg) {
 
 // Image Callback
 void imageCallback(const sensor_msgs::ImageConstPtr& image) {
-    depth_image=*image;
+    depth_image=image;
     new_image=true;
 }
 
