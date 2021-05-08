@@ -5,10 +5,11 @@ import rospy
 import cv2
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
-from opencv_application.msg import kinect
+#from opencv_application.msg import kinect
+from geometry_msgs.msg import Point
 import sys
 
-pub = rospy.Publisher('rgbxy_topic',kinect,queue_size=10)
+pub = rospy.Publisher('rgbxy_topic',Point,queue_size=10)
 
 
 bridge = CvBridge()
@@ -17,11 +18,11 @@ def click_event(event, x, y, flags, params):
     # checking for left mouse clicks
     if event == cv2.EVENT_LBUTTONDOWN:
         
-        kinect_data = kinect()
+        kinect_data = Point()
 
         kinect_data.x = x
         kinect_data.y = y
-        kinect_data.name = 'kinect_001'
+        #kinect_data.name = 'kinect_001'
 
         rospy.loginfo(kinect_data)
 

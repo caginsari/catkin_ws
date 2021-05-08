@@ -11,6 +11,26 @@ ros/ros.h
 /home/cagin/catkin_ws/src/kinect_package/src/ros/ros.h
 image_transport/image_transport.h
 -
+sensor_msgs/Image.h
+/home/cagin/catkin_ws/src/kinect_package/src/sensor_msgs/Image.h
+geometry_msgs/Point.h
+/home/cagin/catkin_ws/src/kinect_package/src/geometry_msgs/Point.h
+
+/opt/ros/melodic/include/geometry_msgs/Point.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
 
 /opt/ros/melodic/include/image_transport/camera_publisher.h
 ros/ros.h

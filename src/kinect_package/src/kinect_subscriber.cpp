@@ -1,6 +1,6 @@
 #include "ros/ros.h"
 #include <image_transport/image_transport.h>
-#include "opencv_application/kinect.h"
+//#include "opencv_application/kinect.h"
 #include "sensor_msgs/Image.h"
 #include "geometry_msgs/Point.h"
 
@@ -57,15 +57,15 @@ int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::
    return -1;  // If depth data invalid
 }
 
-void xycallback(const opencv_application::kinect::ConstPtr& msg) {
+void xyCallback(const geometry_msgs::Point::ConstPtr& msg) {
     x = (float) msg->x;
     y = (float) msg->y;
     new_x_y=true;
 }
 
 // Image Callback
-void imageCallback(const sensor_msgs::Image& image) {
-    depth_image=image;
+void imageCallback(const sensor_msgs::ImageConstPtr& image) {
+    depth_image=*image;
     new_image=true;
 }
 

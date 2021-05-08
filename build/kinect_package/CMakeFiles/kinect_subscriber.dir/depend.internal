@@ -3,6 +3,7 @@
 
 kinect_package/CMakeFiles/kinect_subscriber.dir/src/kinect_subscriber.cpp.o
  /home/cagin/catkin_ws/src/kinect_package/src/kinect_subscriber.cpp
+ /opt/ros/melodic/include/geometry_msgs/Point.h
  /opt/ros/melodic/include/image_transport/camera_publisher.h
  /opt/ros/melodic/include/image_transport/camera_subscriber.h
  /opt/ros/melodic/include/image_transport/exception.h
