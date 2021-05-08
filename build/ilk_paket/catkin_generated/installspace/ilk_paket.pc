@@ -1,0 +1,8 @@
+prefix=/home/cagin/catkin_ws/install
+
+Name: ilk_paket
+Description: Description of ilk_paket
+Version: 0.0.1
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lilk_paket
+Requires: roscpp rospy std_msgs message_runtime
