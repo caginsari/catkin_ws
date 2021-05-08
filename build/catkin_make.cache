@@ -1,2 +1,2 @@
 ilk_paket:kinect_package:my_pcl_tutorial:opencv_application
--DCATKIN_DEVEL_PREFIX=/home/cagin/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/cagin/catkin_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/ethan/Documents/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ethan/Documents/catkin_ws/install -G Unix Makefiles
