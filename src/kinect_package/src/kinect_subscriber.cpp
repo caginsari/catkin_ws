@@ -1,7 +1,7 @@
 #include "ros/ros.h"
 #include <image_transport/image_transport.h>
 //#include "opencv_application/kinect.h"
-#include "sensor_msgs/ImageConstPtr.h"
+#include "sensor_msgs/Image.h"
 #include "geometry_msgs/Point.h"
 
 float x,y;
@@ -60,6 +60,7 @@ int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::
 void xyCallback(const geometry_msgs::Point::ConstPtr& msg) {
     x = (float) msg->x;
     y = (float) msg->y;
+    ROS_INFO("%lf,%lf", x, y);
     new_x_y=true;
 }
 
