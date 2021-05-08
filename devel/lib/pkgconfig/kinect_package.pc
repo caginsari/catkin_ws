@@ -1,0 +1,8 @@
+prefix=/home/cagin/catkin_ws/devel
+
+Name: kinect_package
+Description: Description of kinect_package
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

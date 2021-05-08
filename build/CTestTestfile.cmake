@@ -7,4 +7,5 @@
 subdirs("gtest")
 subdirs("opencv_application")
 subdirs("ilk_paket")
+subdirs("kinect_package")
 subdirs("my_pcl_tutorial")

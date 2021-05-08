@@ -1,0 +1,15 @@
+
+<!-- USE: roslaunch kinect_package viz_kinect.launch -->
+
+<launch>
+
+
+  <!-- Launch freenect package -->
+  <!-- <include file="$(find freenect_launch)/launch/freenect.launch"/> -->
+	<include file="$(find kinect_package)/launch/kinect.launch"/>
+
+  <!-- Show in Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find kinect_package)/rviz_config/kinect_view.rviz"/>
+  <!--<node name="rviz" pkg="rviz" type="rviz" args=""/>-->
+
+</launch>
