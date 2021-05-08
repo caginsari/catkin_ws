@@ -58,11 +58,8 @@ int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::
 void xyCallback(const geometry_msgs::Point::ConstPtr& msg) {
     x = (float) msg->x;
     y = (float) msg->y;
-<<<<<<< Updated upstream
     ROS_INFO("%lf,%lf", x, y);
     new_x_y=true;
-=======
->>>>>>> Stashed changes
 }
 
 // Image Callback
