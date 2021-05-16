@@ -5,7 +5,7 @@
 #include "geometry_msgs/Point.h"
 
 float x = 320.0;
-float y = 240.0;
+float y = 480.0;
 
 
 typedef union U_FloatParse {
@@ -27,18 +27,18 @@ int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::
         if ((depth_image->is_bigendian && (*(char*)&endian_check != 1)) ||  // Both big endian
            ((!depth_image->is_bigendian) && (*(char*)&endian_check == 1))) { // Both lil endian
             for (i = 0; i < 4; i++)
-                depth_data->byte_data[i] = depth_image->data[index + i];
+                depth_data.byte_data[i] = depth_image->data[index + i];
             // Make sure data is valid (check if NaN)
-            if (depth_data->float_data == depth_data->float_data)
-                return int(depth_data->float_data*1000);
+            if (depth_data.float_data == depth_data.float_data)
+                return int(depth_data.float_data*1000);
             return -1;  // If depth data invalid
         }
         // else, one little endian, one big endian
         for (i = 0; i < 4; i++) 
-            depth_data->byte_data[i] = depth_image->data[3 + index - i];
+            depth_data.byte_data[i] = depth_image->data[3 + index - i];
         // Make sure data is valid (check if NaN)
-        if (depth_data->float_data == depth_data->float_data)
-            return int(depth_data->float_data*1000);
+        if (depth_data.float_data == depth_data.float_data)
+            return int(depth_data.float_data*1000);
         return -1;  // If depth data invalid
     }
     // Otherwise, data is 2 byte integers (raw depth image)
@@ -59,13 +59,15 @@ void xyCallback(const geometry_msgs::Point::ConstPtr& msg) {
     x = (float) msg->x;
     y = (float) msg->y;
     ROS_INFO("%lf,%lf", x, y);
-    new_x_y=true;
+    //new_x_y=true;
 }
 
 // Image Callback
 void imageCallback(const sensor_msgs::ImageConstPtr& image) {
     
-    float depth = ReadDepthData(x, y, depth_image); // Width = 640, Height = 480
+    
+    float depth = ReadDepthData(x, y, image); // Width = 640, Height = 480
+
 
     const float invfocalLength = 1.f / 525.f;
     const float centerX = 319.5f;
@@ -78,7 +80,9 @@ void imageCallback(const sensor_msgs::ImageConstPtr& image) {
     float pz = dist;
 
     ROS_INFO("\n Depth: %f\n x:%f,y:%f,z:%f", depth,px,py,pz);
+
 }
+
 
 
 //*** Main ***//
