@@ -1,12 +1,5 @@
 #include "ros/ros.h"
 #include <image_transport/image_transport.h>
-//#include "opencv_application/kinect.h"
-#include "sensor_msgs/Image.h"
-#include "geometry_msgs/Point.h"
-
-float x = 370.0;
-float y = 204.0;
-
 
 typedef union U_FloatParse {
     float float_data;
@@ -55,16 +48,10 @@ int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::
    return -1;  // If depth data invalid
 }
 
-void xyCallback(const geometry_msgs::Point::ConstPtr& msg) {
-    x = (float) msg->x;
-    y = (float) msg->y;
-    ROS_INFO("%lf,%lf", x, y);
-    //new_x_y=true;
-}
-
 // Image Callback
 void imageCallback(const sensor_msgs::ImageConstPtr& image) {
-    
+    float x = 370.f;
+    float y = 204.f;
     
     float depth = ReadDepthData(x, y, image); // Width = 640, Height = 480
 
@@ -79,11 +66,9 @@ void imageCallback(const sensor_msgs::ImageConstPtr& image) {
     float py = (y-centerY) * dist * invfocalLength;
     float pz = dist;
 
-    ROS_INFO("\n Depth: %f\n x:%f,y:%f,z:%f", depth,px,py,pz);
+    ROS_INFO("Depth: %f,%f,%f,%f", depth,px,py,pz);
 
 }
-
-
 
 //*** Main ***//
 int main(int argc, char **argv)
@@ -93,12 +78,6 @@ int main(int argc, char **argv)
     printf("READY to get image\n");
     image_transport::ImageTransport it(n);
     image_transport::Subscriber sub = it.subscribe("/camera/depth_registered/image_raw", 1, imageCallback);
-    ros::Subscriber pose_sub = n.subscribe("/rgbxy_topic", 1, xyCallback);
-
-    geometry_msgs::Point world_position;
-
-    while(ros::ok()){
-        ros::spinOnce();
-    }
+    ros::spin();
     return 0;
-}// this is a change
+}

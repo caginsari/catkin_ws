@@ -961,6 +961,19 @@ kinect_subscriber/fast:
 .PHONY : kinect_subscriber/fast
 
 #=============================================================================
+# Target rules for targets named kinect_subscriberoldcode
+
+# Build rule for target.
+kinect_subscriberoldcode: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kinect_subscriberoldcode
+.PHONY : kinect_subscriberoldcode
+
+# fast build rule for target.
+kinect_subscriberoldcode/fast:
+	$(MAKE) -f kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/build.make kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/build
+.PHONY : kinect_subscriberoldcode/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -1775,6 +1788,7 @@ help:
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... kinect_subscriber"
+	@echo "... kinect_subscriberoldcode"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"

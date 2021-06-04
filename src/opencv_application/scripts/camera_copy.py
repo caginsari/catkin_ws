@@ -44,14 +44,20 @@ def func(ros_image):
     
     cv_image = bridge.imgmsg_to_cv2(ros_image, "bgr8")
 
-    #(rows,cols,channels) = cv_image.shape
-    #if cols > 60 and rows > 60 :
-    #    cv2.circle(cv_image, (320,240), 60, (220,30,255))
+    (rows,cols,channels) = cv_image.shape
+    if cols > 60 and rows > 60 :
+        #cv_image = cv2.bitwise_not(cv_image)
+        #imCopy = cv_image.copy()
+        cv2_image = cv2.cvtColor(cv_image,cv2.COLOR_BGR2GRAY)
+
+        ret,thresh = cv2.threshold(cv2_image,200,255,0)
+        ret,cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
+            cv2.CHAIN_APPROX_SIMPLE)
   
   except CvBridgeError as e:
     print(e)
   
-  cv2.imshow("camera", cv_image)
+  cv2.imshow("camera", cv2_image)
   cv2.setMouseCallback('camera', click_event)
   
   

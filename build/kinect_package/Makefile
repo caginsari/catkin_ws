@@ -80,6 +80,18 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -122,18 +134,6 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -288,6 +288,21 @@ kinect_subscriber/fast:
 .PHONY : kinect_subscriber/fast
 
 # Convenience name for target.
+kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/rule:
+	cd /home/cagin/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/rule
+.PHONY : kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/rule
+
+# Convenience name for target.
+kinect_subscriberoldcode: kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/rule
+
+.PHONY : kinect_subscriberoldcode
+
+# fast build rule for target.
+kinect_subscriberoldcode/fast:
+	cd /home/cagin/catkin_ws/build && $(MAKE) -f kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/build.make kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/build
+.PHONY : kinect_subscriberoldcode/fast
+
+# Convenience name for target.
 kinect_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
 	cd /home/cagin/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 kinect_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 .PHONY : kinect_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
@@ -359,6 +374,33 @@ src/kinect_subscriber.cpp.s:
 	cd /home/cagin/catkin_ws/build && $(MAKE) -f kinect_package/CMakeFiles/kinect_subscriber.dir/build.make kinect_package/CMakeFiles/kinect_subscriber.dir/src/kinect_subscriber.cpp.s
 .PHONY : src/kinect_subscriber.cpp.s
 
+src/kinect_subscriberoldcode.o: src/kinect_subscriberoldcode.cpp.o
+
+.PHONY : src/kinect_subscriberoldcode.o
+
+# target to build an object file
+src/kinect_subscriberoldcode.cpp.o:
+	cd /home/cagin/catkin_ws/build && $(MAKE) -f kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/build.make kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/src/kinect_subscriberoldcode.cpp.o
+.PHONY : src/kinect_subscriberoldcode.cpp.o
+
+src/kinect_subscriberoldcode.i: src/kinect_subscriberoldcode.cpp.i
+
+.PHONY : src/kinect_subscriberoldcode.i
+
+# target to preprocess a source file
+src/kinect_subscriberoldcode.cpp.i:
+	cd /home/cagin/catkin_ws/build && $(MAKE) -f kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/build.make kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/src/kinect_subscriberoldcode.cpp.i
+.PHONY : src/kinect_subscriberoldcode.cpp.i
+
+src/kinect_subscriberoldcode.s: src/kinect_subscriberoldcode.cpp.s
+
+.PHONY : src/kinect_subscriberoldcode.s
+
+# target to generate assembly for a file
+src/kinect_subscriberoldcode.cpp.s:
+	cd /home/cagin/catkin_ws/build && $(MAKE) -f kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/build.make kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/src/kinect_subscriberoldcode.cpp.s
+.PHONY : src/kinect_subscriberoldcode.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -367,6 +409,7 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... install"
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... sensor_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_cpp"
@@ -376,16 +419,19 @@ help:
 	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... kinect_subscriber"
+	@echo "... kinect_subscriberoldcode"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... test"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... list_install_components"
-	@echo "... install"
 	@echo "... src/kinect_subscriber.o"
 	@echo "... src/kinect_subscriber.i"
 	@echo "... src/kinect_subscriber.s"
+	@echo "... src/kinect_subscriberoldcode.o"
+	@echo "... src/kinect_subscriberoldcode.i"
+	@echo "... src/kinect_subscriberoldcode.s"
 .PHONY : help
 
 

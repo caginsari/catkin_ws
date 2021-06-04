@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 
   freenect_launch	
 	roscpp  
+  rospy
 	cv_bridge
   image_transport
   sensor_msgs
@@ -212,6 +213,8 @@ include_directories(
 
 add_executable(kinect_subscriber src/kinect_subscriber.cpp)
 add_dependencies(kinect_subscriber ${subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(kinect_subscriber
-   ${catkin_LIBRARIES}
- )
+target_link_libraries(kinect_subscriber ${catkin_LIBRARIES})
+
+add_executable(kinect_subscriberoldcode src/kinect_subscriberoldcode.cpp)
+add_dependencies(kinect_subscriberoldcode ${subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(kinect_subscriberoldcode ${catkin_LIBRARIES})

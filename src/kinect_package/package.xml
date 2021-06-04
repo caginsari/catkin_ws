@@ -40,6 +40,7 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
 
   <buildtool_depend>catkin</buildtool_depend>
+
   <build_depend>roscpp</build_depend>
   <build_depend>freenect_launch</build_depend>
   <build_depend>cv_bridge</build_depend>

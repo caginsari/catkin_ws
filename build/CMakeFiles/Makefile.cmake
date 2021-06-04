@@ -572,6 +572,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "kinect_package/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/DependInfo.cmake"
   "kinect_package/CMakeFiles/sensor_msgs_generate_messages_eus.dir/DependInfo.cmake"
   "kinect_package/CMakeFiles/kinect_subscriber.dir/DependInfo.cmake"
+  "kinect_package/CMakeFiles/kinect_subscriberoldcode.dir/DependInfo.cmake"
   "kinect_package/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "kinect_package/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/DependInfo.cmake"
   "kinect_package/CMakeFiles/geometry_msgs_generate_messages_eus.dir/DependInfo.cmake"

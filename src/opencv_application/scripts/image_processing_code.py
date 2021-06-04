@@ -1,4 +1,8 @@
-from cv2 import cv2
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+import rospy
+import cv2
 import numpy as np
 import imutils
 from imutils import contours
