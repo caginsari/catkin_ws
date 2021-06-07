@@ -22,7 +22,7 @@ def click_event(event, x, y, flags, params):
     # checking for left mouse clicks
     if event == cv2.EVENT_LBUTTONDOWN:
         
-        kinect_data = Point()
+        kinect_data = Point() # assigns x and y values of the point of the mouse click to the geometry_msgs
 
         kinect_data.x = x
         kinect_data.y = y
@@ -46,7 +46,7 @@ def func(ros_image):
 
   try:
     
-    cv_image = bridge.imgmsg_to_cv2(ros_image, "bgr8")
+    cv_image = bridge.imgmsg_to_cv2(ros_image, "bgr8") #To work with the openCV library ROS image received from the camera is converted to a CV image
 
     #(rows,cols,channels) = cv_image.shape
     #if cols > 60 and rows > 60 :
