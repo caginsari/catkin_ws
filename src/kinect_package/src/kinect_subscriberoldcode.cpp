@@ -50,7 +50,7 @@ int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::
 
 // Image Callback
 void imageCallback(const sensor_msgs::ImageConstPtr& image) {
-    float x = 370.f;
+    float x = 361.f;
     float y = 204.f;
     
     float depth = ReadDepthData(x, y, image); // Width = 640, Height = 480

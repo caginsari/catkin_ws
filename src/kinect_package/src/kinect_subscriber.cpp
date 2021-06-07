@@ -4,9 +4,8 @@
 #include "sensor_msgs/Image.h"
 #include "geometry_msgs/Point.h"
 
-float x = 370.0;
-float y = 204.0;
-
+float x ;
+float y ;
 
 typedef union U_FloatParse {
     float float_data;
@@ -98,7 +97,7 @@ int main(int argc, char **argv)
     geometry_msgs::Point world_position;
 
     while(ros::ok()){
-        ros::spinOnce();
+        ros::spin();
     }
     return 0;
 }// this is a change
