@@ -1,3 +1,10 @@
+/* 
+author: Cagin Sari
+kinect_subscriber.cpp subscribes to the published geometry_msgs message pulished by the character recognition node and 
+uses the received x and y coordinates of the center point of the detected character to calculate the three dimensional world 
+coordinates of the button on the elevator panel. The real world coordinates are then used by the 
+arm to press the requested button. 
+*/
 #include "ros/ros.h"
 #include <image_transport/image_transport.h>
 //#include "opencv_application/kinect.h"
@@ -65,10 +72,11 @@ void xyCallback(const geometry_msgs::Point::ConstPtr& msg) {
 void imageCallback(const sensor_msgs::ImageConstPtr& image) {
     
     
-    float depth = ReadDepthData(x, y, image); // Width = 640, Height = 480
+    float depth = ReadDepthData(x, y, image); // Width = 640, Height = 480 resolution of the kinect rgb camera
 
-
-    const float invfocalLength = 1.f / 525.f;
+// set of equations below is used to calculate the real world coordinates of the detected button 
+// the parameters given below is for the Microsoft Kinect V1
+    const float invfocalLength = 1.f / 525.f; 
     const float centerX = 319.5f;
     const float centerY = 239.5f;
     const float factor = 1.f / 1000.f;
@@ -92,7 +100,7 @@ int main(int argc, char **argv)
     printf("READY to get image\n");
     image_transport::ImageTransport it(n);
     image_transport::Subscriber sub = it.subscribe("/camera/depth_registered/image_raw", 1, imageCallback);
-    ros::Subscriber pose_sub = n.subscribe("/rgbxy_topic", 1, xyCallback);
+    ros::Subscriber pose_sub = n.subscribe("/rgbxy_topic", 1, xyCallback); 
 
     geometry_msgs::Point world_position;
 

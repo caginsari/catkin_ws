@@ -1,3 +1,7 @@
+#author: Cagin Sari
+# camera.py is used to simulate the coordinate coming from the detected letter by publishing the coordinate of the left
+# mouse click on the image frame as geometry_msgs
+
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
