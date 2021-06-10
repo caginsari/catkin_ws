@@ -65,7 +65,7 @@ open_door = 'open_door1.jpg'
 
 coordinates = (-1,-1)
 
-floor=              C                                                                          
+floor=              TWO                                                                          
 
 def floor_number(floor, coordinates):
 	
@@ -406,7 +406,7 @@ if coordinates == (-1,-1):
 
 ######################################################################################################
 def location():
-    pub = rospy.Publisher('/geometry_msgs', Point, queue_size=10)
+    pub = rospy.Publisher('geometry_msgs', Point, queue_size=10)
     rospy.init_node('location', anonymous=True)
     rate = rospy.Rate(1) # 10hz
     position = Point()

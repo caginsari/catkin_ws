@@ -11,8 +11,8 @@ arm to press the requested button.
 #include "sensor_msgs/Image.h"
 #include "geometry_msgs/Point.h"
 
-float x=320.f;
-float y=240.f;
+float x;
+float y;
 
 typedef union U_FloatParse {
     float float_data;
@@ -85,6 +85,8 @@ void imageCallback(const sensor_msgs::ImageConstPtr& image) {
     float px = (x-centerX) * dist * invfocalLength;
     float py = (y-centerY) * dist * invfocalLength;
     float pz = dist;
+
+    //ROS_INFO(" x:%f,y:%f", x,y);
 
     ROS_INFO("\n Depth: %f\n x:%f,y:%f,z:%f", depth,px,py,pz);
 
