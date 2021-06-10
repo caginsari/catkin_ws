@@ -11,8 +11,8 @@ arm to press the requested button.
 #include "sensor_msgs/Image.h"
 #include "geometry_msgs/Point.h"
 
-float x ;
-float y ;
+float x=320.f;
+float y=240.f;
 
 typedef union U_FloatParse {
     float float_data;
@@ -90,8 +90,6 @@ void imageCallback(const sensor_msgs::ImageConstPtr& image) {
 
 }
 
-
-
 //*** Main ***//
 int main(int argc, char **argv)
 {
@@ -100,12 +98,12 @@ int main(int argc, char **argv)
     printf("READY to get image\n");
     image_transport::ImageTransport it(n);
     image_transport::Subscriber sub = it.subscribe("/camera/depth_registered/image_raw", 1, imageCallback);
-    ros::Subscriber pose_sub = n.subscribe("/rgbxy_topic", 1, xyCallback); 
+    ros::Subscriber pose_sub = n.subscribe("/geometry_msgs", 1, xyCallback); 
 
     geometry_msgs::Point world_position;
 
     while(ros::ok()){
-        ros::spin();
+        ros::spinOnce();
     }
     return 0;
 }// this is a change

@@ -218,3 +218,7 @@ target_link_libraries(kinect_subscriber ${catkin_LIBRARIES})
 add_executable(kinect_subscriberoldcode src/kinect_subscriberoldcode.cpp)
 add_dependencies(kinect_subscriberoldcode ${subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(kinect_subscriberoldcode ${catkin_LIBRARIES})
+
+add_executable(realsense_subscriber src/realsense_subscriber.cpp)
+add_dependencies(realsense_subscriber ${subscriber_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(realsense_subscriber ${catkin_LIBRARIES})

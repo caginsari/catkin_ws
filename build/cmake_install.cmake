@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/cagin/catkin_ws/build/gtest/cmake_install.cmake")
   include("/home/cagin/catkin_ws/build/opencv_application/cmake_install.cmake")
+  include("/home/cagin/catkin_ws/build/alarm_package/cmake_install.cmake")
   include("/home/cagin/catkin_ws/build/ilk_paket/cmake_install.cmake")
   include("/home/cagin/catkin_ws/build/kinect_package/cmake_install.cmake")
   include("/home/cagin/catkin_ws/build/my_pcl_tutorial/cmake_install.cmake")
